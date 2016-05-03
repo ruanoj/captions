@@ -1,0 +1,337 @@
+﻿1
+00:00:00,000 --> 00:00:02,971
+Chapter 14: Wrapping up.
+
+2
+00:00:02,970 --> 00:00:09,805
+DN: OK Sole I think it's time to wrap up, so let's
+return to the challenge and see where we are.
+
+3
+00:00:11,268 --> 00:00:16,410
+SP: I think we are done, or overdone if you want!
+
+4
+00:00:17,211 --> 00:00:25,760
+We are playing all these things and
+also making it stop and changing tempo.
+
+5
+00:00:25,794 --> 00:00:27,862
+We also added some humanization.
+
+6
+00:00:27,860 --> 00:00:29,120
+DN: Yes.
+
+7
+00:00:29,120 --> 00:00:35,028
+SP: And also made it in stereo,
+so you don't get a wall of sound.
+
+8
+00:00:35,020 --> 00:00:38,240
+So that's pretty much done for the time that we have.
+
+9
+00:00:38,240 --> 00:00:42,914
+DN: As a performance, that ticks all the boxes.
+
+10
+00:00:42,910 --> 00:00:50,617
+SP: Yes, the only issue is that it
+will never stop, it's going to loop forever.
+
+11
+00:00:50,610 --> 00:01:00,674
+If we had more time we could do more
+things like detect when we are at the end.
+
+12
+00:01:00,670 --> 00:01:06,594
+Like this is the 12th time, so stop...
+Clear the timeout and don't do anything else.
+
+13
+00:01:06,590 --> 00:01:07,245
+DN: Sure.
+
+14
+00:01:07,240 --> 00:01:09,531
+SP: So that's one thing we could do.
+
+15
+00:01:09,565 --> 00:01:11,280
+But you never said you didn't want this to loop.
+
+16
+00:01:11,310 --> 00:01:15,920
+DN: No it's not in the spec!
+
+17
+00:01:15,931 --> 00:01:19,417
+SP: So that's one of the things that we could do.
+
+18
+00:01:19,720 --> 00:01:24,217
+DN: And you have mentioned
+a few times that the code is messy.
+
+19
+00:01:24,220 --> 00:01:33,074
+If you did have time to polish this up,
+what would you do to make the code cleaner.
+
+20
+00:01:37,680 --> 00:01:41,108
+SP: This thing has caught my
+attention. I would remove it.
+
+21
+00:01:41,600 --> 00:01:48,148
+I would make sure that the component
+is a bit less. That would be on some other project.
+
+22
+00:01:48,171 --> 00:01:51,725
+There is nothing else I would do.
+
+23
+00:01:51,782 --> 00:01:59,040
+I would definitely extract
+things to other functions.
+
+24
+00:01:59,040 --> 00:02:03,748
+For example this playBuffer doesn't
+need to be here because this file is long.
+
+25
+00:02:03,740 --> 00:02:12,080
+It's not too long, its 134 lines. But it's
+hard to make out what's going on here.
+
+26
+00:02:12,525 --> 00:02:14,617
+Things get loaded.
+
+27
+00:02:14,651 --> 00:02:18,560
+I would make things into functions
+so I can see the sequence of what's going on.
+
+28
+00:02:18,620 --> 00:02:22,480
+And more parameters because right
+now everything is using a global context.
+
+29
+00:02:22,502 --> 00:02:29,702
+It connects things to things but it's not very neat.
+
+30
+00:02:29,700 --> 00:02:35,771
+I would have the main.js set the sequence
+and then extract things into functions.
+
+31
+00:02:35,770 --> 00:02:42,160
+And because we're using webpack
+it's pretty easy to require things
+
+32
+00:02:42,160 --> 00:02:45,222
+instead of having everything in one massive file.
+
+33
+00:02:45,220 --> 00:02:50,914
+But it's also important not to worry
+about requires when your prototyping.
+
+34
+00:02:50,910 --> 00:02:55,965
+Because then you're like: oh I need
+to add this file to git, and then it's a require;
+
+35
+00:02:55,960 --> 00:02:57,942
+And it kind of like stops you.
+
+36
+00:02:57,940 --> 00:03:04,742
+If this was growing more and I was using it
+with more people in the project I would  split that
+
+37
+00:03:04,754 --> 00:03:09,180
+because it's easier to collaborate with people
+when every person is touching a different file.
+
+38
+00:03:09,180 --> 00:03:15,360
+But when you're beginning, when you're sketching,
+you don't want to be worrying about small details.
+
+39
+00:03:15,380 --> 00:03:20,765
+I would just go step by step in this re-factoring.
+
+40
+00:03:23,370 --> 00:03:29,268
+I would like to have main be a more
+a more general global thing to direct everything
+
+41
+00:03:29,280 --> 00:03:30,777
+and make this sequence more obvious.
+
+42
+00:03:30,811 --> 00:03:35,220
+Because right now we're
+having this giant initialization of things
+
+43
+00:03:35,250 --> 00:03:38,765
+and then a function in the middle [laughter].
+
+44
+00:03:38,770 --> 00:03:41,017
+And then sample promises. 
+
+45
+00:03:41,040 --> 00:03:47,771
+I would have something like initialise,
+then here's where the UI is set, la la la 
+
+46
+00:03:47,780 --> 00:03:50,480
+instead of this massive chunk of things.
+
+47
+00:03:50,540 --> 00:03:55,097
+And all these functions, if you have
+proper parameters they can all go out there 
+
+48
+00:03:55,090 --> 00:03:58,628
+so you have a shorter main and,
+you can dig into the function if you need,
+
+49
+00:03:58,662 --> 00:04:01,668
+but you don't need to have this whole thingy.
+
+50
+00:04:01,714 --> 00:04:11,085
+The functionality of this instrument is not
+too huge so maybe you could keep this here. 
+
+51
+00:04:11,085 --> 00:04:18,617
+All the loading and decoding could
+be out of here and everything else is still...   
+
+52
+00:04:18,640 --> 00:04:22,811
+The important things are
+still in your sight. So to speak.
+
+53
+00:04:23,760 --> 00:04:31,131
+Also, I would make sure that
+this index is copied to build. 
+
+54
+00:04:31,200 --> 00:04:35,588
+Because right now we are
+opening this thing from the bundle. 
+
+55
+00:04:35,965 --> 00:04:42,594
+But if you want to put this project on
+the internet, that's not going to happen.
+
+56
+00:04:42,617 --> 00:04:48,491
+You would need to have automatic
+things, so I would improve the build process. 
+
+57
+00:04:48,514 --> 00:04:53,040
+So here I would refer to bundle
+and generate everything here.
+
+58
+00:04:53,040 --> 00:04:58,331
+So once you've  created the build you
+would upload the whole thing to the internet. 
+
+59
+00:04:58,330 --> 00:05:02,914
+You don't need to use the
+human factor in building this.
+
+60
+00:05:02,920 --> 00:05:13,702
+And this will not run on Chrome because it doesn't
+let you do requests locally, you need a server. 
+
+61
+00:05:13,740 --> 00:05:20,285
+Firefox is permissive in that sense. But
+Chrome is not going to let us load the thing.
+
+62
+00:05:20,285 --> 00:05:21,062
+DN: I see.
+
+63
+00:05:21,085 --> 00:05:23,500
+SP: So if your developing
+you should be using a server, 
+
+64
+00:05:23,520 --> 00:05:26,720
+which I haven't because we
+don't want to make it too complex. 
+
+65
+00:05:26,720 --> 00:05:32,262
+But improving the build would be a good
+idea so you can test it with Safari and Chrome,
+
+66
+00:05:32,262 --> 00:05:35,440
+and maybe have a polyfill for Safari.
+
+67
+00:05:35,480 --> 00:05:40,217
+And also if you want to test it with
+phones you need to expose it somehow
+
+68
+00:05:40,240 --> 00:05:45,405
+because you cannot load this locally
+with phones. So you will need a file server.
+
+69
+00:05:46,674 --> 00:05:49,280
+So that is some of the things I would do.
+
+70
+00:05:49,280 --> 00:05:51,428
+DN: Alright. Well it's been really
+interesting watching you work. 
+
+71
+00:05:51,451 --> 00:05:53,360
+Thanks for coming on the show.
+
+72
+00:05:53,382 --> 00:05:54,285
+SP: Thanks for having me.
+
+73
+00:05:54,297 --> 00:05:55,611
+DN: You're welcome!
+

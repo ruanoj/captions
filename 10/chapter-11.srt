@@ -1,0 +1,459 @@
+﻿1
+00:00:00,000 --> 00:00:02,900
+Chapter 11: Humanize the performance.
+
+2
+00:00:03,020 --> 00:00:07,260
+SP: We have a thing which
+I think fulfills the challenge.
+
+3
+00:00:07,260 --> 00:00:09,140
+DN: Yeah.
+
+4
+00:00:10,820 --> 00:00:16,520
+Part one is playing this thingy,
+part two is playing the variations.
+
+5
+00:00:17,000 --> 00:00:22,490
+And we have a user interface to
+play and stop the music, and modify the tempo.
+
+6
+00:00:23,150 --> 00:00:28,340
+That all works so the
+challenge should be fulfilled.
+
+7
+00:00:28,370 --> 00:00:29,230
+DN: Yes sure.
+
+8
+00:00:29,230 --> 00:00:34,140
+SP: The issue with this is, it sounds super robotic!
+
+9
+00:00:34,140 --> 00:00:38,320
+Normally when you play an instrument
+and you are a human, you make some errors.
+
+10
+00:00:38,360 --> 00:00:46,110
+So I think we should make, every
+note triggered slightly out of time.
+
+11
+00:00:46,130 --> 00:00:48,380
+So we'll add some randomness.
+
+12
+00:00:48,410 --> 00:00:54,750
+I would start with doing that so it sounds a
+bit more natural. Because right now it's too perfect.
+
+13
+00:00:54,790 --> 00:01:01,310
+DN: Yes, I've seen sequencing programs where they
+call it a 'humanize' function, it adds some jitter.
+
+14
+00:01:01,320 --> 00:01:07,880
+SP: Yes, well we can just change the start time
+slightly. Not by a whole beat, but more subtly.
+
+15
+00:01:07,920 --> 00:01:13,510
+I will make it a little less
+perfect until it sounds a bit better.
+
+16
+00:01:13,580 --> 00:01:18,070
+So for the last time, this
+is too perfect [They listen].
+
+17
+00:01:18,100 --> 00:01:19,000
+DN: Yes.
+
+18
+00:01:19,030 --> 00:01:23,590
+SP: We can make it a bit more ‘amusing'.
+
+19
+00:01:24,550 --> 00:01:30,470
+We know when things are starting which is...
+
+20
+00:01:30,470 --> 00:01:37,570
+So this is the contextPlayTime. Instead of
+using that we might get some randomness here.
+
+21
+00:01:37,590 --> 00:01:41,870
+Like, a little ‘indecisiveness' of the players.
+
+22
+00:01:42,650 --> 00:01:46,370
+So I will say getSomeRandom()
+
+23
+00:01:46,370 --> 00:01:51,500
+I'm going to make this function that
+will return positive and negative values.
+
+24
+00:01:51,830 --> 00:01:56,040
+It could be that when you are playing,
+sometimes you anticipate a bit.
+
+25
+00:01:56,040 --> 00:02:03,030
+Players are not perfect, they're not totally
+in sync so it's OK to have some randomness here.
+
+26
+00:02:03,030 --> 00:02:09,050
+[Silence]
+
+27
+00:02:09,220 --> 00:02:14,000
+So we just make the function here.
+
+28
+00:02:14,180 --> 00:02:15,230
+So what do we return?
+
+29
+00:02:15,260 --> 00:02:21,220
+We can start with some randomness and
+then adjust depending on what we see.
+
+30
+00:02:21,330 --> 00:02:26,030
+0.5 second is a lot, but so we can see the difference.
+
+31
+00:02:26,030 --> 00:02:29,560
+[Silence]
+
+32
+00:02:29,660 --> 00:02:34,790
+You can call the random() function but
+this returns [a value] between 0.0 and 1.0.
+
+33
+00:02:34,810 --> 00:02:39,270
+So if I multiply that with 0.5 it's going to be just 0.0 to 0.5.
+
+34
+00:02:39,690 --> 00:02:42,880
+So that means it's always going to be a bit later.
+
+35
+00:02:42,880 --> 00:02:45,970
+I want some to be a bit earlier.
+
+36
+00:02:46,110 --> 00:02:55,370
+So if I have `0.5 - Math.random()` this
+is going to be in -0.5 to 0.5 ... I think.
+
+37
+00:02:55,370 --> 00:02:59,330
+[Sole thinks]
+
+38
+00:02:59,430 --> 00:03:03,860
+Or, one minus this might be from zero to...
+
+39
+00:03:03,890 --> 00:03:07,790
+So this can be negative or positive...
+I don't know now. [laughter]
+
+40
+00:03:07,790 --> 00:03:10,530
+DN: Wouldn't that mean the
+maximum value would be zero?
+
+41
+00:03:10,530 --> 00:03:13,600
+SP: Yes. So I want this thing.
+
+42
+00:03:15,280 --> 00:03:20,390
+So if it's zero it's 0.5? Or maybe...
+OK, I'm just going to leave it like that. Whatever.
+
+43
+00:03:20,430 --> 00:03:23,330
+DN: Let's see what happens.
+
+44
+00:03:23,960 --> 00:03:28,010
+SP: So this needs a semi colon.
+
+45
+00:03:28,090 --> 00:03:31,480
+Now it should be a bit more erratic.
+
+46
+00:03:31,540 --> 00:03:35,080
+Oh no, why not.
+
+47
+00:03:36,360 --> 00:03:39,070
+What am I returning?
+
+48
+00:03:39,070 --> 00:03:42,060
+[Silence]
+
+49
+00:03:42,830 --> 00:03:51,380
+So if it's negative? WHAT?
+This doesn't make any sense. Why?
+
+50
+00:03:51,440 --> 00:03:55,160
+I'm going to debug this thingy.
+
+51
+00:03:55,160 --> 00:03:57,970
+What is when, which is fine.
+
+52
+00:03:57,970 --> 00:04:01,960
+[Silence]
+
+53
+00:04:04,640 --> 00:04:09,800
+I guess it's because I've set the
+debugger which introduces some delay,
+
+54
+00:04:09,850 --> 00:04:12,320
+so I'm not getting a negative time here.
+
+55
+00:04:12,320 --> 00:04:13,270
+DN: Interesting yes.
+
+56
+00:04:13,270 --> 00:04:17,350
+SP: So I'm going to remove the breakpoint thingy.
+
+57
+00:04:17,380 --> 00:04:20,820
+[They listen]
+
+58
+00:04:20,890 --> 00:04:29,080
+It's really messy. Because
+they are really bad players!
+
+59
+00:04:29,090 --> 00:04:31,630
+DN: I think the variation there
+is longer than a beat isn't it?
+
+60
+00:04:31,630 --> 00:04:33,290
+SP: Yeah exactly.
+
+61
+00:04:33,290 --> 00:04:38,370
+I hate this! I always want to have a
+page with all of the one-liners I can check
+
+62
+00:04:38,390 --> 00:04:39,782
+and make sure that they're OK.
+
+63
+00:04:39,805 --> 00:04:44,960
+This is going to go from 1 to 0,
+but that's not what I want.
+
+64
+00:04:45,010 --> 00:04:48,690
+So if I multiply this...
+
+65
+00:04:50,620 --> 00:04:56,390
+This is me going off on a long-winded... So 2 minus...
+
+66
+00:04:56,390 --> 00:04:59,870
+What am I doing? Argh!
+
+67
+00:04:59,930 --> 00:05:09,200
+1...This is easier: 1-0=1 1-1=0
+
+68
+00:05:09,230 --> 00:05:21,650
+I think if it's: 0.5 - 1 = -0.5,
+
+69
+00:05:23,510 --> 00:05:30,150
+OK, this is the one I want. And if I
+multiply that by 2 I get the right thing.
+
+70
+00:05:30,200 --> 00:05:36,640
+What I wanted actually to write from
+the beginning, but I didn't know how was...
+
+71
+00:05:38,540 --> 00:05:42,500
+I knew that there was a one-liner, without the whole story.
+
+72
+00:05:44,060 --> 00:05:47,720
+DN: So that will give you a value between -1.0 and +1.0?
+
+73
+00:05:47,760 --> 00:05:52,300
+SP: Yeah! This is going to return from minus 1 to 1.
+
+74
+00:05:52,300 --> 00:06:00,780
+I'm going to multiply that by
+something else... 0.1 of a second.
+
+75
+00:06:00,780 --> 00:06:06,620
+Maybe we should base this on the beat.
+
+76
+00:06:09,510 --> 00:06:13,510
+This is because I'm working to small values.
+
+77
+00:06:15,000 --> 00:06:17,710
+This is still very terrible.
+
+78
+00:06:19,830 --> 00:06:25,690
+Yes if the current time is
+minus we should win more probably.
+
+79
+00:06:25,690 --> 00:06:29,650
+[Sole thinks]
+
+80
+00:06:36,640 --> 00:06:43,040
+I'm going to make it always be slower.
+
+81
+00:06:51,650 --> 00:06:55,290
+[They listen]
+
+82
+00:06:55,410 --> 00:06:57,030
+SP: It's slightly better.
+
+83
+00:06:57,060 --> 00:06:58,190
+DN: A little bit sloppy.
+
+84
+00:06:58,190 --> 00:07:01,770
+SP: Yes, but that's what you want.
+
+85
+00:07:01,770 --> 00:07:05,040
+[They listen]
+
+86
+00:07:05,080 --> 00:07:09,640
+This is too much, let's make it slower.
+
+87
+00:07:11,840 --> 00:07:14,650
+It's not so mechanical.
+
+88
+00:07:17,720 --> 00:07:21,520
+Maybe we can make it more crappy.
+
+89
+00:07:24,870 --> 00:07:29,930
+It's good to adjust it and see
+when does it stop sounding terrible.
+
+90
+00:07:31,060 --> 00:07:32,070
+This is too much.
+
+91
+00:07:32,110 --> 00:07:35,970
+DN: It is yeah.
+
+92
+00:07:38,980 --> 00:07:43,440
+SP: This is too much I think... [They listen]
+
+93
+00:07:43,480 --> 00:07:45,660
+I will leave it at 2.
+
+94
+00:07:45,660 --> 00:07:48,950
+[They listen]
+
+95
+00:07:49,010 --> 00:07:52,630
+Yes, I think this is good.
+
+96
+00:07:53,500 --> 00:07:59,110
+If I make it 0 there is no change at all.
+
+97
+00:07:59,110 --> 00:08:02,910
+It sound fully on the beat.
+
+98
+00:08:05,060 --> 00:08:06,530
+This is very subtle.
+
+99
+00:08:06,560 --> 00:08:09,590
+DN: Sure, I think you left it
+at 0.2 rather than 0.02 there.
+
+100
+00:08:10,640 --> 00:08:13,270
+SP: Inaud
+
+101
+00:08:13,290 --> 00:08:19,700
+[They listen]
+
+102
+00:08:19,840 --> 00:08:23,110
+I think this is too much inaud this.
+
+103
+00:08:26,890 --> 00:08:29,170
+OK stop.
+
+104
+00:08:29,380 --> 00:08:32,530
+[Silence]
+
+105
+00:08:33,500 --> 00:08:37,720
+Variation! Sometimes you
+need to explain what you did.
+
+106
+00:08:37,720 --> 00:08:41,670
+I was going to just say "make it
+more humane", but what does that mean?
+

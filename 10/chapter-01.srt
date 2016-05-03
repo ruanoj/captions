@@ -1,0 +1,203 @@
+﻿1
+00:00:00,768 --> 00:00:02,512
+Welcome to Peer to Peer
+
+2
+00:00:02,510 --> 00:00:06,384
+where you can hone your skills
+by watching live coding videos.
+
+3
+00:00:06,440 --> 00:00:12,448
+Our guest today is Soledad Penades,
+who is a developer evangelist at Mozilla.
+
+4
+00:00:12,688 --> 00:00:17,232
+She works on the web platform
+and developer tools for Firefox.
+
+5
+00:00:17,230 --> 00:00:21,680
+And she loves to experiment
+with Web Audio and Web GL.
+
+6
+00:00:21,696 --> 00:00:27,840
+I'm your host, Drew Neil, and the challenge
+that I set for Sole is called "Clapping Music".
+
+7
+00:00:27,840 --> 00:00:31,616
+Chapter 1: The challenge.
+
+8
+00:00:31,610 --> 00:00:33,680
+DN: OK Sole, do you want
+to start by reading the challenge?
+
+9
+00:00:33,680 --> 00:00:36,656
+SP: Yeah! I'll try to, I'll do my best!
+
+10
+00:00:36,650 --> 00:00:43,232
+Ok, so the challenge is: Create a system that
+performs Steve Reich's composition "Clapping Music".
+
+11
+00:00:43,230 --> 00:00:47,408
+"Clapping Music" has two parts that
+are based on the same rhythmic cell.
+
+12
+00:00:47,470 --> 00:00:50,400
+Part 1 plays this rhythmic cell
+consistently throughout the piece.
+
+13
+00:00:50,400 --> 00:00:53,520
+(x means play a sound, _ means rest).
+
+14
+00:00:53,520 --> 00:00:58,512
+So it's like tatata tata ta tata
+
+15
+00:00:58,576 --> 00:01:02,750
+Part 2 begins by playing this cell
+then cycles through 11 variations,
+
+16
+00:01:02,752 --> 00:01:05,696
+each of which is shifted by one beat.
+
+17
+00:01:05,690 --> 00:01:09,152
+The system should have some user
+interface to play and stop the music,
+
+18
+00:01:09,200 --> 00:01:13,024
+as well as providing a way of modifying the tempo.
+
+19
+00:01:13,020 --> 00:01:18,880
+DN: On this page we've got
+a representation of the score.
+
+20
+00:01:18,912 --> 00:01:24,576
+SP:  Exactly. [Laughter as Sole considers
+how difficult it is to represent the sounds by voice]
+
+21
+00:01:24,768 --> 00:01:30,432
+SP: OK, so its tatata tata ta tata, so
+on the first line both players are playing in sync
+
+22
+00:01:30,430 --> 00:01:36,016
+And on the next repeat the first
+player is playing the same thing
+
+23
+00:01:37,180 --> 00:01:39,888
+and the second player would shift one step?
+
+24
+00:01:39,900 --> 00:01:47,136
+Or it's like he's one step behind or ahead.
+
+25
+00:01:47,130 --> 00:01:49,072
+DN: Yeah... [thoughtfully].
+
+26
+00:01:49,120 --> 00:01:58,192
+SP: Actually it's one step ahead, so we
+want to add one step to the thingy.
+
+27
+00:01:58,280 --> 00:02:06,160
+SP: It keeps shifting and then at the end
+they are playing the same thing again.
+
+28
+00:02:06,160 --> 00:02:14,256
+DN: Yes, that's right. It's a very simple
+idea but it's surprisingly engaging.
+
+29
+00:02:14,304 --> 00:02:18,832
+The music that comes out of it is interesting:
+the noises it makes are quite exciting to listen to.
+
+30
+00:02:18,848 --> 00:02:22,848
+SP: Yes, and all those videos on YouTube
+are really interesting. [Laughter]
+
+31
+00:02:22,840 --> 00:02:32,576
+I think it can serve to show a number of
+techniques because this is very in sync.
+
+32
+00:02:32,670 --> 00:02:39,120
+And if things drift it's very noticeable. So with
+normal audio tags it's going to drift at some point,
+
+33
+00:02:39,120 --> 00:02:44,576
+because you repeat the same thing all the time.
+So for example, you think things are not working.
+
+34
+00:02:44,600 --> 00:02:50,096
+I would say you can generate lots of elements,
+so it would get memory leaks at some point.
+
+35
+00:02:50,128 --> 00:02:56,320
+Or the garbage collector being like: "WOW
+this is a lot of things for me to worry about!"
+
+36
+00:02:56,384 --> 00:03:02,544
+So if you do it with web audio it should
+be in sync. If you do badly it could be messy.
+
+37
+00:03:02,540 --> 00:03:08,320
+DN: Yes, so you mentioned web audio; that's the
+technology you'd use to solve this challenge?
+
+38
+00:03:08,320 --> 00:03:13,936
+SP: Yes. I don't think you can do it
+correctly without web audio in this case.
+
+39
+00:03:14,016 --> 00:03:15,808
+DN: And that means it would run inside the browser.
+
+40
+00:03:15,840 --> 00:03:19,550
+SP: Yes, it will work in any Browser.
+
+41
+00:03:19,568 --> 00:03:25,344
+I will go through details later but it should
+in theory, work in any modern browser.
+
+42
+00:03:25,424 --> 00:03:32,240
+Even in mobiles and tablets, so it's really cool
+because you can have this running everywhere.
+
+43
+00:03:32,300 --> 00:03:35,008
+Friends can play with it everywhere [Laughter].
+DN: Nice.
+

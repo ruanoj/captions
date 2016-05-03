@@ -1,0 +1,716 @@
+﻿1
+00:00:00,000 --> 00:00:02,880
+Chapter 6: Playing part 2 sequence.
+
+2
+00:00:03,030 --> 00:00:09,000
+So we've got this thing which
+is, (sorry control-M)  looping.
+
+3
+00:00:09,020 --> 00:00:12,760
+But, we might want to have the second player playing.
+
+4
+00:00:12,760 --> 00:00:15,560
+Because right now it's incomplete!
+
+5
+00:00:15,560 --> 00:00:17,640
+So I'm going to mute this thing again.
+
+6
+00:00:17,680 --> 00:00:25,300
+And so looking at the challenge, it says
+that it starts playing both at the same time.
+
+7
+00:00:25,310 --> 00:00:32,050
+After 4 times of repeating the stanza,
+the second player shifts one note?
+
+8
+00:00:32,050 --> 00:00:33,270
+DN: Yes.
+
+9
+00:00:33,290 --> 00:00:37,900
+And then after four times of doing that
+thing, the second player shifts another beat.
+
+10
+00:00:37,930 --> 00:00:48,590
+So I want to increase the stanza
+number after every 4th repeat.
+
+11
+00:00:48,610 --> 00:00:53,580
+And I'm going to use the stanza
+number every time I want to shift.
+
+12
+00:00:55,160 --> 00:01:00,160
+So I'm going to algorithmically
+generate the score for the second player.
+
+13
+00:01:00,160 --> 00:01:08,750
+Instead of giving this player a different
+score I will look at the score and shift that.
+
+14
+00:01:08,780 --> 00:01:15,550
+It's the second score but it's
+determined based on the existing score.
+
+15
+00:01:15,550 --> 00:01:20,070
+Because maybe later, if we have time we
+might want to change the score. inaud
+
+16
+00:01:20,090 --> 00:01:27,880
+That's why I'm not generating that from the
+beginning, but basing it on the existing score.
+
+17
+00:01:27,940 --> 00:01:36,650
+I guess I can have something like stanzaLoopTime...
+
+18
+00:01:36,670 --> 00:01:40,040
+No, I don't like this variable here.
+
+19
+00:01:40,520 --> 00:01:43,755
+DN: I suppose it's almost like,
+how many repetitions in a stanza.
+
+20
+00:01:43,760 --> 00:01:48,435
+SP: Yeah, stanzaReps. Like power lifters! [Laughter]
+
+21
+00:01:48,445 --> 00:01:57,965
+OK, so we also want to loop
+4 times to hard code everything.
+
+22
+00:01:58,300 --> 00:02:07,590
+I don't know if I want to call it stanza loop.
+numStanzaloops maybe, that sounds better.
+
+23
+00:02:07,610 --> 00:02:08,395
+DN: OK.
+
+24
+00:02:08,410 --> 00:02:11,675
+SP: I will say I want to loop this
+thing 4 times, and every time it's 4,
+
+25
+00:02:11,690 --> 00:02:15,920
+I will just increase the reps and
+then decide what way to play it.
+
+26
+00:02:21,390 --> 00:02:25,380
+Also, we can get rid of this play
+sequence because we are reducing the thing.
+
+27
+00:02:26,020 --> 00:02:29,735
+Go away.  It's good to leave it clear inaud.
+
+28
+00:02:29,730 --> 00:02:31,660
+DN: Yes sure.
+
+29
+00:02:34,470 --> 00:02:39,355
+SP: So this is when we should repeat
+the thing, so this is we need to increase.
+
+30
+00:02:39,370 --> 00:02:42,380
+We also could get rid of these console thingies.
+
+31
+00:02:43,095 --> 00:02:47,280
+What else... For example here,
+but we will keep it for now.
+
+32
+00:02:47,300 --> 00:02:51,235
+We could use it to print the
+number of reps that we've done.
+
+33
+00:02:51,230 --> 00:02:58,270
+I'll go to the top so I can see.
+
+34
+00:02:58,280 --> 00:03:00,100
+So stanzaReps.
+
+35
+00:03:00,540 --> 00:03:04,580
+We also want to know which
+is the current stanza number.
+
+36
+00:03:07,145 --> 00:03:12,295
+We want to keep the number
+of reps of the current one; maximum of 4.
+
+37
+00:03:12,290 --> 00:03:18,000
+But we also need to know which is the
+current one so we can increase that after 4 beats.
+
+38
+00:03:18,015 --> 00:03:18,690
+DN: Sure.
+
+39
+00:03:18,700 --> 00:03:21,480
+SP: And also make sense inaud this,
+
+40
+00:03:21,490 --> 00:03:22,850
+So this is the current one.
+
+41
+00:03:22,850 --> 00:03:25,154
+This is the amount of time we repeat with the stanza.
+
+42
+00:03:25,165 --> 00:03:28,180
+And this is the maximum we repeat the stanza.
+
+43
+00:03:28,200 --> 00:03:31,585
+I think it's a good idea to have
+variables ordered in a logical way.
+
+44
+00:03:34,010 --> 00:03:39,350
+So when we finish the sequence, we look but we also...
+
+45
+00:03:39,360 --> 00:03:46,755
+We increment the number
+of repetitions of this stanza.
+
+46
+00:03:46,760 --> 00:03:57,690
+But if the stanza reps is the number
+of loops, we should increase the current stanza...
+
+47
+00:04:00,750 --> 00:04:02,970
+Hopefully. [laughter]
+
+48
+00:04:08,430 --> 00:04:14,580
+So I will print current stanza here.
+
+49
+00:04:14,670 --> 00:04:17,730
+[Silence]
+
+50
+00:04:19,330 --> 00:04:25,290
+And maybe the reps as well so we can check it.
+
+51
+00:04:25,310 --> 00:04:34,700
+SP: So this is the current stanza and reps.
+
+52
+00:04:34,800 --> 00:04:38,630
+I don't usually use the word stanza.
+
+53
+00:04:38,640 --> 00:04:40,130
+DN: It's not flowing off your fingers.
+
+54
+00:04:40,160 --> 00:04:41,954
+SP: No, it's not.
+
+55
+00:04:41,980 --> 00:04:47,200
+In theory it should stop.
+
+56
+00:04:49,020 --> 00:04:51,870
+Something broke. I don't know.
+
+57
+00:04:51,870 --> 00:04:54,200
+inaud
+
+58
+00:04:54,280 --> 00:05:03,250
+[They listen to the clapping]
+
+59
+00:05:04,580 --> 00:05:09,880
+I'm not sending anything to
+zero. So that's why it's going forever.
+
+60
+00:05:09,880 --> 00:05:15,170
+So it should increase that but it also should...
+
+61
+00:05:15,210 --> 00:05:19,040
+It's hard to think when this
+thing is clapping in your face.
+
+62
+00:05:19,070 --> 00:05:26,100
+It should increase that but also go back to zero.
+
+63
+00:05:26,140 --> 00:05:30,680
+We need to inaud that because we're doing a new one.
+
+64
+00:05:30,800 --> 00:05:33,290
+OK let's try again.
+
+65
+00:05:33,320 --> 00:05:44,710
+[They listen again]
+
+66
+00:05:44,960 --> 00:05:48,680
+I think that makes more sense.
+
+67
+00:05:50,830 --> 00:05:55,940
+The first one doesn't load because
+we are not inaud yet, but I think it's correct.
+
+68
+00:05:55,970 --> 00:05:58,260
+DN: It looked wrong at first there because... inaud
+
+69
+00:05:58,280 --> 00:06:01,760
+SP: Yes, we should show the thing on the
+screen all the time, it would make more sense.
+
+70
+00:06:01,790 --> 00:06:05,200
+So I think I will do that once
+we get the player playing.
+
+71
+00:06:05,230 --> 00:06:09,870
+[They listen] OK, this looks good.
+Now I need the second player to play.
+
+72
+00:06:09,900 --> 00:06:14,040
+I need to commit this.
+
+73
+00:06:14,090 --> 00:06:19,270
+I keep checking this, I am only changing main.js.
+
+74
+00:06:21,010 --> 00:06:27,690
+This should be 'keep track of stanza and reps'.
+
+75
+00:06:29,050 --> 00:06:33,530
+And with that I can determine
+what the second player should play.
+
+76
+00:06:33,560 --> 00:06:43,200
+So the ‘should play' is for the first player.
+
+77
+00:06:43,200 --> 00:06:46,130
+And we need to determine
+if the second player has to play.
+
+78
+00:06:46,150 --> 00:06:51,020
+So I'm going to rename this
+to shouldPlay1 and shouldPlay1,
+
+79
+00:06:51,050 --> 00:06:56,330
+and then I'll find out if the second one needs to play.
+
+80
+00:06:56,330 --> 00:07:01,790
+It's not very scalable when you have lots
+of things to play but for this case it should be OK.
+
+81
+00:07:01,820 --> 00:07:08,440
+So this is going to be using
+the number of the current stanza,
+
+82
+00:07:08,450 --> 00:07:13,960
+because every time we play
+another 4 loops we want to shift.
+
+83
+00:07:14,000 --> 00:07:20,860
+And I'm going to calculate
+the step separately, so it's clear.
+
+84
+00:07:20,890 --> 00:07:29,700
+So the current step is the current step,
+plus the current stanza because that shifts 1.
+
+85
+00:07:29,780 --> 00:07:33,410
+But we don't want to go too
+far because the sequence only has 12.
+
+86
+00:07:33,440 --> 00:07:38,070
+So if I'm in the last step and I'm
+playing the second player, I'm going to be out.
+
+87
+00:07:38,100 --> 00:07:48,980
+so we have to look back and start from zero and
+we can use the modulo operator for that.
+
+88
+00:07:49,030 --> 00:07:52,260
+Inaud,
+
+89
+00:07:54,510 --> 00:07:56,270
+Does that make sense?
+
+90
+00:07:56,290 --> 00:07:58,040
+DN: Yes that does make sense.
+
+91
+00:07:58,040 --> 00:08:03,260
+SP: So, for those at home that don't know...
+
+92
+00:08:03,930 --> 00:08:06,630
+(This we're not going to execute).
+
+93
+00:08:06,630 --> 00:08:12,960
+So if you have the modulo thingy. Suppose you
+have 12, which is the number of steps we have.
+
+94
+00:08:13,000 --> 00:08:28,190
+So we model the values with 12,1 =1, 2=2 etc
+
+95
+00:08:28,210 --> 00:08:32,200
+And 12 should be zero, because it goes back to zero.
+
+96
+00:08:32,220 --> 00:08:35,310
+That way we never go out of the array.
+
+97
+00:08:35,340 --> 00:08:41,610
+Knowing how the modulo works is super
+handy when you have a number of values
+
+98
+00:08:41,610 --> 00:08:43,850
+and you want to skip to the next.
+
+99
+00:08:43,860 --> 00:08:48,830
+If you do something videos++
+modulo the length. And it works super quickly.
+
+100
+00:08:48,840 --> 00:08:55,530
+I like those kind of things, but it's not the best
+practice because then you have to explain them.
+
+101
+00:08:55,540 --> 00:08:59,080
+Or you could say something like index++
+
+102
+00:08:59,090 --> 00:09:05,960
+No that is even worse it's
+better to say ++ index % length.
+
+103
+00:09:05,980 --> 00:09:12,680
+It may be hard to understand, but sometimes
+when I'm typing in a rush, I might use this thing.
+
+104
+00:09:12,700 --> 00:09:21,433
+It's not the best practice. But if you're doing
+short things you might just want to use that.
+
+105
+00:09:23,580 --> 00:09:28,360
+Just to make sure... I will log it.
+
+106
+00:09:28,450 --> 00:09:31,660
+Ahhhh go back.
+
+107
+00:09:31,660 --> 00:09:34,960
+[Silence]
+
+108
+00:09:35,160 --> 00:09:41,350
+We can't really say because
+it's showing the other one.
+
+109
+00:09:41,430 --> 00:09:43,830
+So let's show both at the same time.
+
+110
+00:09:43,860 --> 00:09:45,910
+DN: Ah... Right,OK.
+
+111
+00:09:45,930 --> 00:09:49,680
+SP: So right now they are the
+same because we're still not looping.
+
+112
+00:09:49,790 --> 00:09:56,640
+But in the next block we
+should see how they've shifted.
+
+113
+00:09:56,670 --> 00:10:01,680
+It seems to be working fine.
+
+114
+00:10:01,680 --> 00:10:05,270
+So now we know that that
+one should be playing a different thing.
+
+115
+00:10:05,280 --> 00:10:09,450
+DN: We're in the third stanza, zero two.
+
+116
+00:10:09,460 --> 00:10:11,930
+SP: Yes, so there are two shifts. OK, that looks good.
+
+117
+00:10:11,930 --> 00:10:15,010
+So that's why sometimes logging is good.
+
+118
+00:10:15,010 --> 00:10:20,000
+You could debug this thing but the problem with
+debugging is that you need to go step by step.
+
+119
+00:10:20,015 --> 00:10:24,535
+Whereas, if you can see the progression
+like this, it's easier to see what's going on.
+
+120
+00:10:24,530 --> 00:10:28,290
+You don't need to say next next next,
+because that would be really boring.
+
+121
+00:10:28,300 --> 00:10:34,575
+And also, this is not the same it's really slow-ish.
+
+122
+00:10:34,590 --> 00:10:36,595
+So yep, OK.
+
+123
+00:10:36,590 --> 00:10:40,260
+[Sole thinks]
+
+124
+00:10:40,400 --> 00:10:43,600
+We have the currentStep2,
+we can determine the shouldPlay2.
+
+125
+00:10:43,600 --> 00:10:50,265
+So shouldPlay2 = sequence[currentStep2]
+
+126
+00:10:50,280 --> 00:10:53,000
+[Silence]
+
+127
+00:10:53,290 --> 00:11:01,115
+So if(shouldPlay2) and just
+play the buffer. And clap sample.
+
+128
+00:11:01,210 --> 00:11:03,380
+And they are happening at the same time.
+
+129
+00:11:03,400 --> 00:11:06,840
+It's just that they are looking at
+different points in the sequence.
+
+130
+00:11:06,880 --> 00:11:11,650
+But the the steps are still in step time.
+
+131
+00:11:11,740 --> 00:11:16,150
+Maybe if this was a proper score it
+would all happen in quarters, I don't know.
+
+132
+00:11:16,180 --> 00:11:20,200
+Like different lengths and things like
+that. This is a very simplified version.
+
+133
+00:11:20,260 --> 00:11:23,390
+So in theory this should play the things I want.
+
+134
+00:11:23,410 --> 00:11:24,980
+[They listen]
+
+135
+00:11:25,020 --> 00:11:26,590
+OK, let's try this.
+
+136
+00:11:26,590 --> 00:11:30,500
+I will look at this and see if there are more things.
+
+137
+00:11:30,540 --> 00:11:36,310
+So you have two  playing.
+You can really see the difference now.
+
+138
+00:11:36,310 --> 00:11:40,530
+[They listen]
+
+139
+00:11:40,580 --> 00:11:44,160
+DN: Ah there we go. [The clapping speeds up]
+
+140
+00:11:44,160 --> 00:11:46,430
+It's really hard to tell who's playing isn't it?
+
+141
+00:11:46,430 --> 00:11:53,630
+SP: Yes, We still have the dynamics compressor
+so things are not going to be super loud.
+
+142
+00:11:53,660 --> 00:11:58,660
+That's the issue with using the same sample
+for both, so I think I will change the sample.
+
+143
+00:11:58,680 --> 00:12:01,050
+[They listen].
+
+144
+00:12:01,090 --> 00:12:05,440
+Yes, it's hard to say. I'm going to
+change the sample and add another one.
+
+145
+00:12:05,470 --> 00:12:09,090
+So we can see the difference
+because right now it's too hard to say.
+
+146
+00:12:09,110 --> 00:12:10,670
+DN: Yeah.
+
+147
+00:12:10,690 --> 00:12:13,250
+SP: I would say it's working, but who knows.
+
+148
+00:12:13,250 --> 00:12:19,210
+OK, so I will commit this and change to loading
+to 2 samples instead of using one for both.
+
+149
+00:12:19,240 --> 00:12:21,340
+Otherwise I don't know what's going on.
+
+150
+00:12:21,340 --> 00:12:23,980
+DN: What we have here is a performance.
+
+151
+00:12:24,000 --> 00:12:25,310
+SP: A performance!
+
+152
+00:12:25,330 --> 00:12:29,450
+DN: Well, yes it is clapping music.
+
+153
+00:12:29,450 --> 00:12:35,440
+SP: But a very precise performance, all the
+players sound exactly the same. And always in time.
+
+154
+00:12:35,440 --> 00:12:37,560
+DN: It's 'clapping music' by a robot.
+
+155
+00:12:37,610 --> 00:12:43,820
+SP: Yes, but it sounds like a machine as well, do do do do.
+
+156
+00:12:43,850 --> 00:12:54,340
+Also, in this case there is
+no silence in the second rep.
+
+157
+00:12:54,360 --> 00:13:00,620
+And the reason is because the dynamics
+compressor makes sure we are never saturating.
+
+158
+00:13:00,650 --> 00:13:06,520
+So if we didn't have it we would
+notice louder things... But right now we can't.
+
+159
+00:13:06,720 --> 00:13:10,010
+Let's try a different sample to start with.
+
+160
+00:13:10,360 --> 00:13:13,200
+[Silence]
+
+161
+00:13:15,950 --> 00:13:20,230
+So 'make second player play'.
+
